@@ -9,11 +9,16 @@ var template = (
     </ol>
   </div>
 );
-
+var user = {
+  name: 'Piotr',
+  age: 27,
+};
+var userName = 'Piotr';
+var userAge = 27;
 var templateTwo = (
   <div>
-    <h1>Piotr Kasprzycki</h1>
-    <p>Age 32</p>
+    <h1>{user.name.toUpperCase() + '!'}</h1>
+    <p>Age: {user.age}</p>
   </div>
 );
 var appRoot = document.getElementById('app');

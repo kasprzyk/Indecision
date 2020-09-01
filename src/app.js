@@ -4,10 +4,13 @@ console.log('app is running');
 var app = {
   title: 'test',
   subtitle: 'test',
+  options: ['One', 'Two'],
 };
 var template = (
   <div>
     <h1>{app.title}</h1> <p>test</p>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>{app.options.length > 0 ? 'Options' : 'No options'}</p>
     <ol>
       <li>Item</li>
     </ol>
@@ -30,8 +33,8 @@ function getLocation(location) {
 }
 var templateTwo = (
   <div>
-    <h1>{user.name.toUpperCase() + '!'}</h1>
-    <p>Age: {user.age}</p>
+    <h1>{user.name ? user.name : 'Anonymous'}</h1>
+    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
     {getLocation(user.location)}
   </div>
 );

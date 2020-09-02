@@ -3,19 +3,34 @@
 console.log('app is running');
 
 //jsx
+var app = {
+  title: 'test',
+  subtitle: 'test',
+  options: ['One', 'Two']
+};
 var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Indecision app'
+    app.title
   ),
   ' ',
   React.createElement(
     'p',
     null,
     'test'
+  ),
+  app.subtitle && React.createElement(
+    'p',
+    null,
+    app.subtitle
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.options.length > 0 ? 'Options' : 'No options'
   ),
   React.createElement(
     'ol',
@@ -27,19 +42,33 @@ var template = React.createElement(
     )
   )
 );
-
+var count = 0;
+var addOne = function addOne() {};
+var minusOne = function minusOne() {};
+var reset = function reset() {};
 var templateTwo = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Piotr Kasprzycki'
+    'Count: ',
+    count
   ),
   React.createElement(
-    'p',
-    null,
-    'Age 32'
+    'button',
+    { onClick: addOne },
+    '+1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: minusOne },
+    '-1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: reset },
+    'reset'
   )
 );
 var appRoot = document.getElementById('app');

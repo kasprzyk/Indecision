@@ -16,26 +16,16 @@ var template = (
     </ol>
   </div>
 );
-var user = {
-  name: 'Piotr',
-  age: 27,
-  location: 'Ilawa',
-};
-var userName = 'Piotr';
-var userAge = 27;
-
-function getLocation(location) {
-  if (location) {
-    return <p>{location}</p>;
-  } else {
-    return 'unknown';
-  }
-}
-var templateTwo = (
+let count = 0;
+const addOne = () => {};
+const minusOne = () => {};
+const reset = () => {};
+const templateTwo = (
   <div>
-    <h1>{user.name ? user.name : 'Anonymous'}</h1>
-    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>reset</button>
   </div>
 );
 var appRoot = document.getElementById('app');

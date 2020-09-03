@@ -22,6 +22,11 @@ const removeAll = () => {
   app.options = [];
   renderApp();
 };
+const onMakeDecision = () => {
+  const randomNum = Math.floor(Math.random() * app.options.length);
+  const option = app.options[randomNum];
+  alert(option);
+};
 
 const numbers = [55, 101, 1000];
 
@@ -32,6 +37,9 @@ const renderApp = () => {
       {app.subtitle && <p>{app.subtitle}</p>}
       <p>{app.options.length > 0 ? 'Options' : 'No options'}</p>
       <p>{app.options.length}</p>
+      <button disabled={app.options.length == 0} onClick={onMakeDecision}>
+        What should I do
+      </button>
       <button onClick={removeAll}>Remove all</button>
       {numbers.map((number) => {
         return <p key={number}>Number: {number}</p>;

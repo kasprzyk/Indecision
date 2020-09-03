@@ -21,6 +21,8 @@ const removeAll = () => {
   renderApp();
 };
 
+const numbers = [55, 101, 1000];
+
 const renderApp = () => {
   var template = (
     <div>
@@ -29,6 +31,9 @@ const renderApp = () => {
       <p>{app.options.length > 0 ? 'Options' : 'No options'}</p>
       <p>{app.options.length}</p>
       <button onClick={removeAll}>Remove all</button>
+      {numbers.map((number) => {
+        return number * 2;
+      })}
       <ol>
         <li>Item</li>
       </ol>

@@ -1,5 +1,8 @@
 'use strict';
 
+var _require = require('core-js/fn/array'),
+    map = _require.map;
+
 console.log('app is running');
 
 //jsx
@@ -61,16 +64,23 @@ var renderApp = function renderApp() {
       'Remove all'
     ),
     numbers.map(function (number) {
-      return number * 2;
+      return React.createElement(
+        'p',
+        { key: number },
+        'Number: ',
+        number
+      );
     }),
     React.createElement(
       'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        'Item'
-      )
+      app.options.map(function (option) {
+        return React.createElement(
+          'li',
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       'form',

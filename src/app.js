@@ -1,3 +1,5 @@
+const { map } = require('core-js/fn/array');
+
 console.log('app is running');
 
 //jsx
@@ -32,10 +34,12 @@ const renderApp = () => {
       <p>{app.options.length}</p>
       <button onClick={removeAll}>Remove all</button>
       {numbers.map((number) => {
-        return number * 2;
+        return <p key={number}>Number: {number}</p>;
       })}
       <ol>
-        <li>Item</li>
+        {app.options.map((option) => {
+          return <li key={option}>{option}</li>;
+        })}
       </ol>
       <form onSubmit={onFormSubmit}>
         <input type='text' name='option'></input>

@@ -8,9 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _require = require('babel-types'),
-    react = _require.react;
-
 var IndecisionApp = function (_React$Component) {
   _inherits(IndecisionApp, _React$Component);
 
@@ -23,12 +20,15 @@ var IndecisionApp = function (_React$Component) {
   _createClass(IndecisionApp, [{
     key: 'render',
     value: function render() {
+      var title = 'Indecision';
+      var subtitle = 'Put your life in the hands of computer';
+      var options = ['one', 'two', 'three'];
       return React.createElement(
         'div',
         null,
-        React.createElement(Header, null),
+        React.createElement(Header, { title: title, subtitle: subtitle }),
         React.createElement(Action, null),
-        React.createElement(Options, null),
+        React.createElement(Options, { options: options }),
         React.createElement(AddOption, null)
       );
     }
@@ -49,18 +49,19 @@ var Header = function (_React$Component2) {
   _createClass(Header, [{
     key: 'render',
     value: function render() {
+      this.props;
       return React.createElement(
         'div',
         null,
         React.createElement(
           'h1',
           null,
-          'Indecision'
+          this.props.title
         ),
         React.createElement(
           'h2',
           null,
-          'Put your life into hands of computer'
+          this.props.subtitle
         )
       );
     }
@@ -111,8 +112,9 @@ var Options = function (_React$Component4) {
       return React.createElement(
         'div',
         null,
-        'Options component',
-        React.createElement(Option, null)
+        this.props.options.map(function (option) {
+          return React.createElement(Option, { key: option, optionText: option });
+        })
       );
     }
   }]);
@@ -135,7 +137,7 @@ var Option = function (_React$Component5) {
       return React.createElement(
         'div',
         null,
-        'Option component'
+        this.props.optionText
       );
     }
   }]);

@@ -1,3 +1,12 @@
+const obj = {
+  name: 'test',
+  getName() {
+    return this.name;
+  },
+};
+
+const getName = obj.getName.bind({ name: 'Piotr' });
+
 class IndecisionApp extends React.Component {
   render() {
     const title = 'Indecision';

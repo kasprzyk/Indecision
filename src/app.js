@@ -1,7 +1,9 @@
 //import './utils.js';
-import { square, add } from './utils.js';
-import { canDrink, isAdult } from './person.js';
+import subtract, { square, add } from './utils.js';
+import isSenior, { canDrink, isAdult } from './person.js';
 
 console.log('test');
 console.log(square(4));
-console.log(square(1, 2));
+console.log(add(1, 2));
+console.log(subtract(1, 2));
+console.log(isSenior(65));

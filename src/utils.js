@@ -1,11 +1,16 @@
 console.log('test');
 
-const square = (x) => {
+export const square = (x) => {
   return x * x;
 };
 
-const add = (a, b) => {
+export const add = (a, b) => {
   return a + b;
 };
 
-export { square, add };
+const subtract = (a, b) => {
+  return a - b;
+};
+
+export default subtract;
+//export { square, add, subtract as default };
